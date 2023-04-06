@@ -12,9 +12,7 @@ export const JourneyDetail = ({ journey }) => {
       <div className="stops">
 
         {journey.stops.map((stop) => {
-          return (
-            <BusStop name={stop.name} station={stop.station} time={stop.time} key={stop.code} />
-          );
+          return <BusStop name={stop.name} station={stop.station} time={stop.time} key={stop.code} />
         })}
 
       </div>

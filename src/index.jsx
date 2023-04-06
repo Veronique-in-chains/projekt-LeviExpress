@@ -25,4 +25,6 @@ const router = createBrowserRouter([
   }
 ]);
 
-createRoot(document.querySelector('#app')).render(<RouterProvider router={router} /> );
+createRoot(document.querySelector('#app')).render(
+  <RouterProvider router={router} /> 
+);

@@ -46,6 +46,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      output: {
+        filename: 'bundle-[contenthash:6].js',
+        publicPath: '/',
+        clean: true,
+      },
     }),
     new CopyPlugin({
       patterns: [
