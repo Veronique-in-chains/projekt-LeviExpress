@@ -5,13 +5,18 @@ import { SeatPicker } from "../SeatPicker";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+
   const [journey, setJourney] = useState(null);
+  const [userSeat, setUserSeat] = useState(null);
+
   const navigate = useNavigate();
 
   const handleJourneyChange = (journey) => {
     console.log(journey);
     setJourney(journey);
   };
+
+  const handleSeatSelected = (number) => setUserSeat(number);
 
   const handleBuy = () => {
     fetch("https://apps.kodim.cz/daweb/leviexpress/api/reservation", {
@@ -21,7 +26,7 @@ export const Home = () => {
       },
       body: JSON.stringify({
         action: "create",
-        seat: journey.autoSeat,
+        seat: userSeat,
         journeyId: journey.journeyId,
       }),
     })
@@ -36,7 +41,8 @@ export const Home = () => {
       {journey && (
         <>
           <JourneyDetail journey={journey} />
-          <SeatPicker seats={journey.seats} journeyId={journey.journeyId} selectedSeat={journey.autoSeat} />
+          <SeatPicker seats={journey.seats} journeyId={journey.journeyId} selectedSeat={userSeat} 
+          onSeatSelected={handleSeatSelected} />
 
           <div className="controls container">
             <button className="btn btn--big" type="button" onClick={handleBuy}>
@@ -45,7 +51,6 @@ export const Home = () => {
           </div>
         </>
       )}
-
 
     </main>
   );

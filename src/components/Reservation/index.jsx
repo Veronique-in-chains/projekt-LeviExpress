@@ -14,29 +14,29 @@ export const Reservation = () => {
 
   const [reservation, setReservation] = useState(null);
 
-
   console.log(reservation);
 
   return (
     <main>
-        {reservation !== null && 
-        <div className="reservation container">
-          <h2>Vaše e-jízdenka č. {reservation.reservationId}</h2>
-          <div className="reservation__body">
-            <div className="reservation__headings">
-              <p>Datum cesty:</p>
-              <p>Odjezd:</p>
-              <p>Příjezd:</p>
-              <p>Sedadlo: {reservation.seatNumber}</p>
-            </div>
-            <div className="reservation__info">
-              <p> {reservation.date}</p>
-              <p> {reservation.fromCity.name}, {reservation.fromCity.time}</p>
-              <p> {reservation.toCity.name}, {reservation.toCity.time}</p>
-              <p>{reservation.seatNumber}</p>
+        {reservation && 
+          <div className="reservation container">
+            <h2>Vaše e-jízdenka č. {reservation.reservationId}</h2>
+            <div className="reservation__body">
+              <div className="reservation__headings">
+                <p>Datum cesty:</p>
+                <p>Odjezd:</p>
+                <p>Příjezd:</p>
+                <p>Sedadlo: {reservation.seatNumber}</p>
+              </div>
+              <div className="reservation__info">
+                <p> {reservation.date}</p>
+                <p> {reservation.fromCity.name}, {reservation.fromCity.time}</p>
+                <p> {reservation.toCity.name}, {reservation.toCity.time}</p>
+                <p>{reservation.seatNumber}</p>
+              </div>
             </div>
           </div>
-        </div>}
+        }
     </main>
   );
 };

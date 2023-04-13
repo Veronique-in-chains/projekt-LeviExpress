@@ -1,0 +1,18 @@
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+header,
+footer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
